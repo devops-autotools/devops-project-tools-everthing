@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './index.css';
 import { extractImages, processImages, getConvertedYaml, generateMigrationScript } from './utils/parser';
 
@@ -224,6 +225,7 @@ function App() {
           />
         </section>
       </main>
+      <SpeedInsights />
     </div>
   );
 }
