@@ -29,21 +29,23 @@ const YamlFormatter = () => {
   };
 
   return (
-    <div className="yaml-formatter-page">
-      <header className="page-header">
-        <h1>
-          <FileCode2 size={28} style={{ color: 'var(--accent)' }} />
-          YAML Formatter & Linter
-        </h1>
-        <p>Format messy YAML or convert JSON into clean YAML. Invalid syntax will be caught and highlighted.</p>
-      </header>
+    <div className="tool-page">
+      <div className="tool-header">
+        <div className="tool-header-icon" style={{ background: 'linear-gradient(135deg, #6366f1, #4f46e5)' }}>
+          <FileCode2 size={28} />
+        </div>
+        <div>
+          <h1>YAML Formatter & Linter</h1>
+          <p>Format messy YAML or convert JSON into clean YAML. Invalid syntax will be caught and highlighted.</p>
+        </div>
+      </div>
 
-      <main className="app-main two-columns">
+      <main className="app-main" style={{ gridTemplateColumns: '1fr 1fr', padding: 0 }}>
         {/* Left Column: Input */}
         <section className="column">
           <div className="column-header">
             <div className="column-header-row">
-              <h2>Raw YAML or JSON</h2>
+              <h2 style={{ fontSize: '0.9rem', fontWeight: 600 }}>Raw YAML or JSON</h2>
               {input.length > 0 && (
                 <button className="btn btn-small" onClick={() => setInput('')}>Clear</button>
               )}
@@ -64,7 +66,7 @@ const YamlFormatter = () => {
         <section className="column">
           <div className="column-header">
             <div className="column-header-row">
-              <h2 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <h2 style={{ fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
                 Formatted Output
                 {input && result.isValid && (
                   <span className="badge badge-success" style={{ marginLeft: '8px' }}>
@@ -74,11 +76,6 @@ const YamlFormatter = () => {
                 {input && !result.isValid && (
                   <span className="badge badge-error" style={{ marginLeft: '8px' }}>
                     <AlertTriangle size={14} /> Syntax Error
-                  </span>
-                )}
-                {input && result.isValid && result.k8sErrors && result.k8sErrors.length > 0 && (
-                  <span className="badge badge-warning" style={{ marginLeft: '8px' }}>
-                    <AlertTriangle size={14} /> K8s Schema Error
                   </span>
                 )}
               </h2>
@@ -108,7 +105,7 @@ const YamlFormatter = () => {
           )}
 
           {input && !result.isValid ? (
-            <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '16px', padding: '16px' }}>
               <div className="error-container" style={{ flex: result.autoFixed ? 'none' : 1, height: 'auto', marginTop: 0 }}>
                 <div className="error-header">
                   <AlertTriangle size={24} className="error-icon" />
@@ -116,17 +113,13 @@ const YamlFormatter = () => {
                 </div>
                 <div className="error-details">
                   <p><strong>Error:</strong> {result.error.message}</p>
-                  <p><strong>Line:</strong> {result.error.line}</p>
-                </div>
-                <div className="error-raw">
-                  <pre>{result.error.fullError}</pre>
                 </div>
               </div>
               
               {result.autoFixed && (
-                <div className="autofix-container">
+                <div className="autofix-container" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                   <div className="autofix-header">
-                    <h3 style={{ margin: 0, color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h3 style={{ margin: 0, color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                       💡 Auto-fix Suggestion
                     </h3>
                     <button className="btn btn-small btn-primary" onClick={() => setInput(result.autoFixed)}>

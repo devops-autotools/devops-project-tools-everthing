@@ -54,7 +54,6 @@ const Base64Tool = () => {
   const handleModeToggle = () => {
     const newMode = mode === 'encode' ? 'decode' : 'encode';
     setMode(newMode);
-    // Swap input/output
     setInput(output);
     process(output, newMode, urlSafe);
   };
@@ -84,7 +83,7 @@ const Base64Tool = () => {
   return (
     <div className="tool-page">
       <div className="tool-header">
-        <div className="tool-header-icon">
+        <div className="tool-header-icon" style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}>
           <ShieldCheck size={28} />
         </div>
         <div>
@@ -93,8 +92,7 @@ const Base64Tool = () => {
         </div>
       </div>
 
-      {/* Mode Switch Bar */}
-      <div className="base64-mode-bar">
+      <div className="base64-mode-bar" style={{ flexShrink: 0 }}>
         <div className="base64-mode-tabs">
           <button
             className={`mode-tab ${mode === 'encode' ? 'active' : ''}`}
@@ -116,19 +114,18 @@ const Base64Tool = () => {
       </div>
 
       {autoDetected && (
-        <div className="autodetect-hint">
+        <div className="autodetect-hint" style={{ flexShrink: 0, marginBottom: 16 }}>
           <AlertTriangle size={14} />
           <span>{autoDetected}</span>
           <button className="btn btn-small" onClick={handleModeToggle}>Switch to Decode</button>
         </div>
       )}
 
-      <div className="two-col-layout" style={{ flex: 1 }}>
-        {/* Input Column */}
-        <div className="column-panel">
+      <main className="app-main" style={{ gridTemplateColumns: '1fr auto 1fr', padding: 0 }}>
+        <section className="column">
           <div className="column-header">
             <div className="column-header-row">
-              <h2>{mode === 'encode' ? 'Plain Text Input' : 'Base64 Input'}</h2>
+              <h2 style={{ fontSize: '0.9rem', fontWeight: 600 }}>{mode === 'encode' ? 'Plain Text Input' : 'Base64 Input'}</h2>
               <button className="btn btn-small btn-danger" onClick={handleClear} disabled={!input}>
                 <Trash2 size={14} /> Clear
               </button>
@@ -140,21 +137,20 @@ const Base64Tool = () => {
             onChange={handleInputChange}
             placeholder={mode === 'encode' ? 'Enter any text to encode...' : 'Paste Base64 string here...'}
             spellCheck="false"
+            style={{ flex: 1 }}
           />
-        </div>
+        </section>
 
-        {/* Swap Button */}
-        <div className="col-swap-btn">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 8px' }}>
           <button className="btn btn-icon" onClick={handleModeToggle} title="Swap input/output">
             <ArrowLeftRight size={20} />
           </button>
         </div>
 
-        {/* Output Column */}
-        <div className="column-panel">
+        <section className="column">
           <div className="column-header">
             <div className="column-header-row">
-              <h2>
+              <h2 style={{ fontSize: '0.9rem', fontWeight: 600 }}>
                 {mode === 'encode' ? 'Base64 Output' : 'Decoded Text'}
                 {output && !error && (
                   <span className="badge badge-success" style={{ marginLeft: 8 }}>
@@ -188,11 +184,11 @@ const Base64Tool = () => {
               readOnly
               placeholder={mode === 'encode' ? '# Encoded Base64 will appear here...' : '# Decoded text will appear here...'}
               spellCheck="false"
-              style={{ opacity: output ? 1 : 0.5 }}
+              style={{ opacity: output ? 1 : 0.5, flex: 1 }}
             />
           )}
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };

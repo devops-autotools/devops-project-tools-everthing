@@ -68,7 +68,7 @@ const JsonYamlConverter = () => {
   return (
     <div className="tool-page">
       <div className="tool-header">
-        <div className="tool-header-icon">
+        <div className="tool-header-icon" style={{ background: 'linear-gradient(135deg, #3b82f6, #2563eb)' }}>
           <RefreshCw size={28} />
         </div>
         <div>
@@ -77,8 +77,7 @@ const JsonYamlConverter = () => {
         </div>
       </div>
 
-      {/* Direction selector */}
-      <div className="base64-mode-bar">
+      <div className="base64-mode-bar" style={{ flexShrink: 0 }}>
         <div className="base64-mode-tabs">
           <button
             className={`mode-tab ${direction === 'json-to-yaml' ? 'active' : ''}`}
@@ -95,12 +94,12 @@ const JsonYamlConverter = () => {
         </div>
       </div>
 
-      <div className="two-col-layout" style={{ flex: 1 }}>
+      <main className="app-main" style={{ gridTemplateColumns: '1fr auto 1fr', padding: 0 }}>
         {/* Input */}
-        <div className="column-panel">
+        <section className="column">
           <div className="column-header">
             <div className="column-header-row">
-              <h2>{inputLabel}</h2>
+              <h2 style={{ fontSize: '0.9rem', fontWeight: 600 }}>{inputLabel}</h2>
               <button className="btn btn-small btn-danger" onClick={handleClear} disabled={!input}>
                 <Trash2 size={14} /> Clear
               </button>
@@ -112,21 +111,22 @@ const JsonYamlConverter = () => {
             onChange={handleInputChange}
             placeholder={inputPlaceholder}
             spellCheck="false"
+            style={{ flex: 1 }}
           />
-        </div>
+        </section>
 
         {/* Swap */}
-        <div className="col-swap-btn">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 8px' }}>
           <button className="btn btn-icon" onClick={handleSwap} title="Swap direction">
             <ArrowLeftRight size={20} />
           </button>
         </div>
 
         {/* Output */}
-        <div className="column-panel">
+        <section className="column">
           <div className="column-header">
             <div className="column-header-row">
-              <h2>
+              <h2 style={{ fontSize: '0.9rem', fontWeight: 600 }}>
                 {outputLabel}
                 {output && !error && (
                   <span className="badge badge-success" style={{ marginLeft: 8 }}>
@@ -160,11 +160,11 @@ const JsonYamlConverter = () => {
               readOnly
               placeholder={outputPlaceholder}
               spellCheck="false"
-              style={{ opacity: output ? 1 : 0.5 }}
+              style={{ opacity: output ? 1 : 0.5, flex: 1 }}
             />
           )}
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };
