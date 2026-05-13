@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Anchor, KeySquare, FileCode2, GitMerge, ShieldCheck, RefreshCw, Clock, Globe, Lock, Layers, Radio, BookOpen } from 'lucide-react';
+import { Anchor, KeySquare, FileCode2, GitMerge, ShieldCheck, RefreshCw, Clock, Globe, Lock, Layers, Radio, BookOpen, FileText, Regex } from 'lucide-react';
 
 const tools = [
   {
@@ -9,6 +9,15 @@ const tools = [
     description: 'Auto-convert public container images in values.yaml to a private registry.',
     icon: <Anchor size={24} />,
     path: '/helm-converter',
+    status: 'active',
+    group: 'Containers'
+  },
+  {
+    id: 'dockerfile-linter',
+    name: 'Dockerfile Linter',
+    description: 'Analyze Dockerfiles for anti-patterns, security risks, and best practices. 18+ rules.',
+    icon: <FileText size={24} />,
+    path: '/dockerfile-linter',
     status: 'active',
     group: 'Containers'
   },
@@ -40,11 +49,29 @@ const tools = [
     group: 'Kubernetes'
   },
   {
+    id: 'k8s-calculator',
+    name: 'K8s Resource Calculator',
+    description: 'Calculate CPU/Memory requests & limits, estimate node capacity, and generate YAML.',
+    icon: <Layers size={24} />,
+    path: '/k8s-calculator',
+    status: 'active',
+    group: 'Kubernetes'
+  },
+  {
     id: 'jwt-decoder',
     name: 'JWT Decoder',
     description: 'Decode and inspect JSON Web Tokens locally without internet.',
     icon: <KeySquare size={24} />,
     path: '/jwt-decoder',
+    status: 'active',
+    group: 'Security'
+  },
+  {
+    id: 'ssh-generator',
+    name: 'SSH Key Generator',
+    description: 'Generate secure SSH key pairs (RSA/Ed25519) locally in your browser.',
+    icon: <KeySquare size={24} />,
+    path: '/ssh-generator',
     status: 'active',
     group: 'Security'
   },
@@ -63,6 +90,15 @@ const tools = [
     description: 'Instantly convert between JSON and YAML formats with real-time preview.',
     icon: <RefreshCw size={24} />,
     path: '/json-yaml',
+    status: 'active',
+    group: 'Utilities'
+  },
+  {
+    id: 'regex-tester',
+    name: 'Regex Tester',
+    description: 'Test regular expressions in real-time with match highlighting and capture group inspection.',
+    icon: <Regex size={24} />,
+    path: '/regex-tester',
     status: 'active',
     group: 'Utilities'
   },

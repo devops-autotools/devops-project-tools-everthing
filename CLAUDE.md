@@ -16,35 +16,36 @@
 
 ## Hiện Tại Dự Án Đang Ở Đâu?
 
-### ✅ 11 Tools đã hoàn thiện (4 ẩn 1):
+### ✅ 15 Tools đã hoàn thiện (6 ẩn 1):
 
 **Nhóm CONTAINERS:**
 1. `/helm-converter` — Helm Image Converter
+2. `/dockerfile-linter` — Dockerfile Linter
 
 **Nhóm KUBERNETES:**
 2. `/kubeconfig-merger` — Kubeconfig Merger
 3. `/yaml-formatter` — YAML Formatter & K8s Schema Validator
 4. `/cron-builder` — Cron Expression Builder
+5. `/k8s-calculator` — K8s Resource Calculator
 
 **Nhóm SECURITY:**
-5. `/jwt-decoder` — JWT Decoder
-6. `/base64` — Base64 Encode/Decode
+6. `/jwt-decoder` — JWT Decoder
+7. `/ssh-generator` — SSH Key Generator
+8. `/base64` — Base64 Encode/Decode
 
 **Nhóm UTILITIES:**
-7. `/json-yaml` — JSON ↔ YAML Converter
+9. `/json-yaml` — JSON ↔ YAML Converter
+10. `/regex-tester` — Regex Tester
 
 **Nhóm DOMAIN:**
-8. `/dns-lookup` — DNS Lookup ✅ Visible
-9. `/ssl-checker` — SSL Certificate Checker ✅ Visible
-10. `/http-headers` — HTTP Headers Inspector ✅ Visible
-11. `/whois` — WHOIS Lookup ✅ Visible
-12. `/dns-propagation` — DNS Propagation Checker ⚠️ **HIDDEN** (route tồn tại, ẩn sidebar + Dashboard)
+11. `/dns-lookup` — DNS Lookup ✅ Visible
+12. `/ssl-checker` — SSL Certificate Checker ✅ Visible
+13. `/http-headers` — HTTP Headers Inspector ✅ Visible
+14. `/whois` — WHOIS Lookup ✅ Visible
+15. `/dns-propagation` — DNS Propagation Checker ⚠️ **HIDDEN**
 
 ### Đã lên kế hoạch tiếp theo:
-- Dockerfile Linter
-- K8s Resource Calculator
-- SSH Key Generator
-- Regex Tester
+- Cập nhật thêm tính năng nâng cao cho Dockerfile Linter.
 
 ---
 
@@ -100,7 +101,7 @@ Các tool nhóm DOMAIN gọi API bên ngoài từ browser. Phải dùng API hỗ
 --bg-secondary: #1e293b    /* Nền panel, card */
 --bg-tertiary: #334155     /* Nền chip, badge */
 --bg-input: #0b1120        /* Nền textbox code editor */
---accent: #3b82f6          /* Màu xanh accent chính */
+--accent: #38bdf8          /* Màu xanh accent chính */
 --success: #10b981         /* Màu xanh lá cho Valid/OK */
 --warning: #f59e0b         /* Màu vàng cho Warning */
 --text-primary: #f8fafc
@@ -162,7 +163,11 @@ docs/
 ├── tool-08-dns-lookup.md
 ├── tool-09-ssl-checker.md
 ├── tool-10-http-headers.md
-└── tool-11-whois-lookup.md
+├── tool-11-whois-lookup.md
+├── tool-12-dockerfile-linter.md
+├── tool-13-k8s-calculator.md
+├── tool-14-ssh-generator.md
+└── tool-15-regex-tester.md
 ```
 
 > DNS Propagation Checker (`/dns-propagation`) đang ẩn — không có trong sidebar/Dashboard nhưng route vẫn hoạt động. Để bật lại: uncomment trong `Layout.jsx` và `Dashboard.jsx`.

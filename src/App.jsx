@@ -10,6 +10,10 @@ import Base64Tool from './pages/Base64Tool';
 import JsonYamlConverter from './pages/JsonYamlConverter';
 import CronBuilder from './pages/CronBuilder';
 import DnsLookup from './pages/DnsLookup';
+import DockerfileLinter from './pages/DockerfileLinter';
+import RegexTester from './pages/RegexTester';
+import K8sResourceCalculator from './pages/K8sResourceCalculator';
+import SSHKeyGenerator from './pages/SSHKeyGenerator';
 import WhoisLookup from './pages/WhoisLookup';
 import SslChecker from './pages/SslChecker';
 import HttpHeaders from './pages/HttpHeaders';
@@ -29,6 +33,10 @@ function App() {
           <Route path="base64" element={<Base64Tool />} />
           <Route path="json-yaml" element={<JsonYamlConverter />} />
           <Route path="cron-builder" element={<CronBuilder />} />
+          <Route path="dockerfile-linter" element={<DockerfileLinter />} />
+          <Route path="regex-tester" element={<RegexTester />} />
+          <Route path="k8s-calculator" element={<K8sResourceCalculator />} />
+          <Route path="ssh-generator" element={<SSHKeyGenerator />} />
           <Route path="dns-lookup" element={<DnsLookup />} />
           <Route path="whois" element={<WhoisLookup />} />
           <Route path="ssl-checker" element={<SslChecker />} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LayoutDashboard, Anchor, Hexagon, GitMerge, KeySquare, FileCode2, ShieldCheck, RefreshCw, Clock, Globe, Lock, Layers, Radio, BookOpen } from 'lucide-react';
+import { LayoutDashboard, Anchor, Hexagon, GitMerge, KeySquare, FileCode2, ShieldCheck, RefreshCw, Clock, Globe, Lock, Layers, Radio, BookOpen, FileText, Regex } from 'lucide-react';
 import '../index.css';
 
 const Layout = () => {
@@ -22,6 +22,10 @@ const Layout = () => {
             <Anchor size={20} />
             <span>Helm Image Converter</span>
           </NavLink>
+          <NavLink to="/dockerfile-linter" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <FileText size={20} />
+            <span>Dockerfile Linter</span>
+          </NavLink>
 
           <div className="nav-group-label">KUBERNETES</div>
           <NavLink to="/kubeconfig-merger" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
@@ -36,11 +40,19 @@ const Layout = () => {
             <Clock size={20} />
             <span>Cron Builder</span>
           </NavLink>
+          <NavLink to="/k8s-calculator" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Layers size={20} />
+            <span>Resource Calculator</span>
+          </NavLink>
 
           <div className="nav-group-label">SECURITY</div>
           <NavLink to="/jwt-decoder" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <KeySquare size={20} />
             <span>JWT Decoder</span>
+          </NavLink>
+          <NavLink to="/ssh-generator" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <KeySquare size={20} />
+            <span>SSH Key Gen</span>
           </NavLink>
           <NavLink to="/base64" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <ShieldCheck size={20} />
@@ -51,6 +63,10 @@ const Layout = () => {
           <NavLink to="/json-yaml" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <RefreshCw size={20} />
             <span>JSON ↔ YAML</span>
+          </NavLink>
+          <NavLink to="/regex-tester" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Regex size={20} />
+            <span>Regex Tester</span>
           </NavLink>
 
           <div className="nav-group-label">DOMAIN</div>

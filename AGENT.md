@@ -31,8 +31,9 @@ When the user asks you to implement a new tool (e.g., Kubeconfig Merger):
 
 ## 5. Current State
 As of May 2026:
-- The `Helm Image Converter` is 100% complete. It features a robust Regex line-by-line parser that supports complex Helm variables (like `cert-manager`).
-- The Dashboard UI is complete.
-- 3 placeholder cards exist in `Dashboard.jsx`.
+- **15 Tools** are fully functional, including Helm Converter, Dockerfile Linter (with auto-fix), K8s Resource Calculator, and SSH Key Generator.
+- The project follows a strict **Dark/Slate Premium** design system.
+- Zero-dependency logic (where possible) is preferred to maintain speed and privacy.
+- All heavy logic is abstracted into `src/utils` or handled via standard Web APIs (SubtleCrypto).
 
 *Good luck, Agent! The user is a DevOps professional who appreciates clean, high-performance code.*
