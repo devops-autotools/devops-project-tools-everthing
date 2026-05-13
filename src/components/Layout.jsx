@@ -9,7 +9,7 @@ const Layout = () => {
       <aside className="sidebar">
         <div className="sidebar-logo">
           <Hexagon className="logo-icon" size={28} style={{ color: 'var(--accent)' }} />
-          <h2>DevOps AutoTools</h2>
+          <h2>Tools-Everthing</h2>
         </div>
         <nav className="sidebar-nav">
           <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} end>
