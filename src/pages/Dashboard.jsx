@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Anchor, KeySquare, FileCode2, GitMerge, Settings } from 'lucide-react';
+import { Anchor, KeySquare, FileCode2, GitMerge, ShieldCheck, RefreshCw, Clock } from 'lucide-react';
 
 const tools = [
   {
@@ -9,7 +9,8 @@ const tools = [
     description: 'Auto-convert public container images in values.yaml to a private registry.',
     icon: <Anchor size={24} />,
     path: '/helm-converter',
-    status: 'active'
+    status: 'active',
+    group: 'Containers'
   },
   {
     id: 'kubeconfig-merger',
@@ -17,7 +18,26 @@ const tools = [
     description: 'Safely merge multiple kubeconfig files into a single context.',
     icon: <GitMerge size={24} />,
     path: '/kubeconfig-merger',
-    status: 'active'
+    status: 'active',
+    group: 'Kubernetes'
+  },
+  {
+    id: 'yaml-formatter',
+    name: 'YAML Formatter & K8s Validator',
+    description: 'Format, validate and lint complex Kubernetes YAML files with schema checks.',
+    icon: <FileCode2 size={24} />,
+    path: '/yaml-formatter',
+    status: 'active',
+    group: 'Kubernetes'
+  },
+  {
+    id: 'cron-builder',
+    name: 'Cron Expression Builder',
+    description: 'Build and validate cron expressions with a live preview of next scheduled runs.',
+    icon: <Clock size={24} />,
+    path: '/cron-builder',
+    status: 'active',
+    group: 'Kubernetes'
   },
   {
     id: 'jwt-decoder',
@@ -25,15 +45,26 @@ const tools = [
     description: 'Decode and inspect JSON Web Tokens locally without internet.',
     icon: <KeySquare size={24} />,
     path: '/jwt-decoder',
-    status: 'active'
+    status: 'active',
+    group: 'Security'
   },
   {
-    id: 'yaml-formatter',
-    name: 'YAML Formatter',
-    description: 'Format, validate and lint complex Kubernetes YAML files.',
-    icon: <FileCode2 size={24} />,
-    path: '/yaml-formatter',
-    status: 'active'
+    id: 'base64',
+    name: 'Base64 Encode / Decode',
+    description: 'Encode text to Base64 or decode Base64 strings. Works offline, great for K8s Secrets.',
+    icon: <ShieldCheck size={24} />,
+    path: '/base64',
+    status: 'active',
+    group: 'Security'
+  },
+  {
+    id: 'json-yaml',
+    name: 'JSON ↔ YAML Converter',
+    description: 'Instantly convert between JSON and YAML formats with real-time preview.',
+    icon: <RefreshCw size={24} />,
+    path: '/json-yaml',
+    status: 'active',
+    group: 'Utilities'
   }
 ];
 

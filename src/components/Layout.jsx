@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LayoutDashboard, Anchor, Hexagon, GitMerge, KeySquare, FileCode2 } from 'lucide-react';
+import { LayoutDashboard, Anchor, Hexagon, GitMerge, KeySquare, FileCode2, ShieldCheck, RefreshCw, Clock } from 'lucide-react';
 import '../index.css';
 
 const Layout = () => {
@@ -16,11 +16,13 @@ const Layout = () => {
             <LayoutDashboard size={20} />
             <span>Dashboard</span>
           </NavLink>
+
           <div className="nav-group-label">CONTAINERS</div>
           <NavLink to="/helm-converter" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Anchor size={20} />
             <span>Helm Image Converter</span>
           </NavLink>
+
           <div className="nav-group-label">KUBERNETES</div>
           <NavLink to="/kubeconfig-merger" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <GitMerge size={20} />
@@ -30,10 +32,25 @@ const Layout = () => {
             <FileCode2 size={20} />
             <span>YAML Formatter</span>
           </NavLink>
+          <NavLink to="/cron-builder" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Clock size={20} />
+            <span>Cron Builder</span>
+          </NavLink>
+
           <div className="nav-group-label">SECURITY</div>
           <NavLink to="/jwt-decoder" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <KeySquare size={20} />
             <span>JWT Decoder</span>
+          </NavLink>
+          <NavLink to="/base64" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <ShieldCheck size={20} />
+            <span>Base64 Encode/Decode</span>
+          </NavLink>
+
+          <div className="nav-group-label">UTILITIES</div>
+          <NavLink to="/json-yaml" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <RefreshCw size={20} />
+            <span>JSON ↔ YAML</span>
           </NavLink>
         </nav>
       </aside>
