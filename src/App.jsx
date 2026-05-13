@@ -9,6 +9,11 @@ import YamlFormatter from './pages/YamlFormatter';
 import Base64Tool from './pages/Base64Tool';
 import JsonYamlConverter from './pages/JsonYamlConverter';
 import CronBuilder from './pages/CronBuilder';
+import DnsLookup from './pages/DnsLookup';
+import WhoisLookup from './pages/WhoisLookup';
+import SslChecker from './pages/SslChecker';
+import HttpHeaders from './pages/HttpHeaders';
+import DnsPropagation from './pages/DnsPropagation';
 import './index.css';
 
 function App() {
@@ -24,6 +29,11 @@ function App() {
           <Route path="base64" element={<Base64Tool />} />
           <Route path="json-yaml" element={<JsonYamlConverter />} />
           <Route path="cron-builder" element={<CronBuilder />} />
+          <Route path="dns-lookup" element={<DnsLookup />} />
+          <Route path="whois" element={<WhoisLookup />} />
+          <Route path="ssl-checker" element={<SslChecker />} />
+          <Route path="http-headers" element={<HttpHeaders />} />
+          <Route path="dns-propagation" element={<DnsPropagation />} />
         </Route>
       </Routes>
     </Router>

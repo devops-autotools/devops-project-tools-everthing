@@ -16,14 +16,29 @@
 
 ## Hiện Tại Dự Án Đang Ở Đâu?
 
-### 7 Tools đã hoàn thiện:
+### ✅ 11 Tools đã hoàn thiện (4 ẩn 1):
+
+**Nhóm CONTAINERS:**
 1. `/helm-converter` — Helm Image Converter
+
+**Nhóm KUBERNETES:**
 2. `/kubeconfig-merger` — Kubeconfig Merger
 3. `/yaml-formatter` — YAML Formatter & K8s Schema Validator
 4. `/cron-builder` — Cron Expression Builder
+
+**Nhóm SECURITY:**
 5. `/jwt-decoder` — JWT Decoder
 6. `/base64` — Base64 Encode/Decode
+
+**Nhóm UTILITIES:**
 7. `/json-yaml` — JSON ↔ YAML Converter
+
+**Nhóm DOMAIN:**
+8. `/dns-lookup` — DNS Lookup ✅ Visible
+9. `/ssl-checker` — SSL Certificate Checker ✅ Visible
+10. `/http-headers` — HTTP Headers Inspector ✅ Visible
+11. `/whois` — WHOIS Lookup ✅ Visible
+12. `/dns-propagation` — DNS Propagation Checker ⚠️ **HIDDEN** (route tồn tại, ẩn sidebar + Dashboard)
 
 ### Đã lên kế hoạch tiếp theo:
 - Dockerfile Linter
@@ -55,6 +70,26 @@
 ❌ Gửi dữ liệu nhạy cảm (JWT, kubeconfig, password) ra server  
 ❌ Thêm thư viện nặng không cần thiết (js-yaml đã đủ cho YAML)  
 ❌ Dùng `yaml.dump()` với file có comment → sẽ mất comment  
+
+---
+
+## ⚠️ CORS — Lưu Ý Quan Trọng Cho Domain Tools
+
+Các tool nhóm DOMAIN gọi API bên ngoài từ browser. Phải dùng API hỗ trợ CORS native:
+
+| Tool | API | Lý do chọn |
+|------|-----|------------|
+| DNS Lookup | `dns.google/resolve` | Không cần custom header → không trigger CORS preflight |
+| DNS Propagation | `dns.google/resolve` | Cloudflare DoH bị block khi thêm Accept header |
+| SSL Checker | `api.certspotter.com` | CORS native, free, không cần key |
+| HTTP Headers | `corsproxy.io` | Proxy forward headers qua Response object |
+| WHOIS | `rdap.org` | RDAP chuẩn RFC, hỗ trợ CORS |
+
+**KHÔNG dùng:**
+- `cloudflare-dns.com/dns-query` (cần `Accept: application/dns-json` → CORS preflight)
+- `crt.sh` (không có CORS headers)
+- `who-dat.as93.net` (không ổn định)
+- `api.allorigins.win` (không trả headers của target site)
 
 ---
 
@@ -123,5 +158,11 @@ docs/
 ├── tool-04-cron-builder.md
 ├── tool-05-jwt-decoder.md
 ├── tool-06-base64.md
-└── tool-07-json-yaml-converter.md
+├── tool-07-json-yaml-converter.md
+├── tool-08-dns-lookup.md
+├── tool-09-ssl-checker.md
+├── tool-10-http-headers.md
+└── tool-11-whois-lookup.md
 ```
+
+> DNS Propagation Checker (`/dns-propagation`) đang ẩn — không có trong sidebar/Dashboard nhưng route vẫn hoạt động. Để bật lại: uncomment trong `Layout.jsx` và `Dashboard.jsx`.

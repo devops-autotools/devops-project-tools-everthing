@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Anchor, KeySquare, FileCode2, GitMerge, ShieldCheck, RefreshCw, Clock } from 'lucide-react';
+import { Anchor, KeySquare, FileCode2, GitMerge, ShieldCheck, RefreshCw, Clock, Globe, Lock, Layers, Radio, BookOpen } from 'lucide-react';
 
 const tools = [
   {
@@ -65,6 +65,42 @@ const tools = [
     path: '/json-yaml',
     status: 'active',
     group: 'Utilities'
+  },
+  {
+    id: 'dns-lookup',
+    name: 'DNS Lookup',
+    description: 'Query A, AAAA, CNAME, MX, TXT records from Cloudflare, Google, Quad9 DNS.',
+    icon: <Globe size={24} />,
+    path: '/dns-lookup',
+    status: 'active',
+    group: 'Domain'
+  },
+  {
+    id: 'ssl-checker',
+    name: 'SSL Certificate Checker',
+    description: 'Check SSL/TLS certificate expiry date, issuer, and Subject Alternative Names.',
+    icon: <Lock size={24} />,
+    path: '/ssl-checker',
+    status: 'active',
+    group: 'Domain'
+  },
+  {
+    id: 'http-headers',
+    name: 'HTTP Headers Inspector',
+    description: 'Inspect HTTP response headers and get a security score (HSTS, CSP, X-Frame...).',
+    icon: <Layers size={24} />,
+    path: '/http-headers',
+    status: 'active',
+    group: 'Domain'
+  },
+  {
+    id: 'whois',
+    name: 'WHOIS Lookup',
+    description: 'Domain registration info, registrar, expiry date and nameservers.',
+    icon: <BookOpen size={24} />,
+    path: '/whois',
+    status: 'active',
+    group: 'Domain'
   }
 ];
 
@@ -74,7 +110,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
-        <h1>Welcome back, DevOps Engineer</h1>
+        <h1>Welcome back</h1>
         <p>Select a tool below to accelerate your deployment workflow.</p>
       </header>
 

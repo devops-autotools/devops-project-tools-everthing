@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LayoutDashboard, Anchor, Hexagon, GitMerge, KeySquare, FileCode2, ShieldCheck, RefreshCw, Clock } from 'lucide-react';
+import { LayoutDashboard, Anchor, Hexagon, GitMerge, KeySquare, FileCode2, ShieldCheck, RefreshCw, Clock, Globe, Lock, Layers, Radio, BookOpen } from 'lucide-react';
 import '../index.css';
 
 const Layout = () => {
@@ -51,6 +51,24 @@ const Layout = () => {
           <NavLink to="/json-yaml" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <RefreshCw size={20} />
             <span>JSON ↔ YAML</span>
+          </NavLink>
+
+          <div className="nav-group-label">DOMAIN</div>
+          <NavLink to="/dns-lookup" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Globe size={20} />
+            <span>DNS Lookup</span>
+          </NavLink>
+          <NavLink to="/ssl-checker" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Lock size={20} />
+            <span>SSL Checker</span>
+          </NavLink>
+          <NavLink to="/http-headers" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Layers size={20} />
+            <span>HTTP Headers</span>
+          </NavLink>
+          <NavLink to="/whois" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <BookOpen size={20} />
+            <span>WHOIS Lookup</span>
           </NavLink>
         </nav>
       </aside>
